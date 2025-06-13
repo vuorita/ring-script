@@ -1,0 +1,5 @@
+ring-code/
+│
+├── index.html       # Demo page showing the member list
+├── members.json     # JSON data with members
+└── ring.js          # Script fetching and displaying members
