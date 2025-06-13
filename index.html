@@ -1,13 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
-  <meta charset="UTF-8" />
-  <title>Art Collective Member List</title>
+  <meta charset="UTF-8">
+  <title>Taiteilijaverkkorinki</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 700px;
+      margin: 2em auto;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .info {
+      background: #f9f9f9;
+      border-left: 4px solid #999;
+      padding: 1em;
+      margin-top: 2em;
+    }
+    .en {
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-  <h1>Artists in Our Art Collective</h1>
-  <div id="members-list">Loading members...</div>
 
-  <script src="ring.js"></script>
+  <div class="en">
+    <h2>🔸 English summary</h2>
+    <p>This project is a lightweight web ring for independent artists. Each member has their own website or blog, and this script shows a shared list of members on each participating site.</p>
+    <p>The member list is stored in a public JSON file on GitHub and updated manually by the maintainer. To join, artists must send their name and website URL to the maintainer and agree to having their info listed publicly.</p>
+    <p>Embed code:</p>
+    <pre><code>&lt;div id="members-list"&gt;Loading members...&lt;/div&gt;
+&lt;script src="https://vuorita.github.io/ring-script/ring.js"&gt;&lt;/script&gt;</code></pre>
+    <hr>
+  </div>
+
+  <h1>Taiteilijaverkkorinki</h1>
+
+  <p>
+    Tämä on itsenäisten taiteilijoiden verkkorinki. Jokaisella jäsenellä on oma verkkosivunsa tai bloginsa, ja rinki tarjoaa vain yhteisen linkkilistan — näkyvissä kaikilla ringissä mukana olevilla sivuilla.
+  </p>
+
+  <h2>Miten liittyä rinkiin?</h2>
+  <ol>
+    <li>Lähetä viesti ringin ylläpitäjälle (esimerkiksi sähköpostilla tai lomakkeella), jossa kerrot:
+      <ul>
+        <li>Nimesi tai taiteilijanimimerkkisi</li>
+        <li>Verkkosivusi osoitteen (URL)</li>
+      </ul>
+    </li>
+    <li>Ylläpitäjä lisää sivusi jäsenlistaan (listaa ylläpidetään GitHubissa)</li>
+    <li>Kun sinut on hyväksytty mukaan, saat upotuskoodin, jonka voit liittää omaan sivuusi</li>
+  </ol>
+
+  <div class="info">
+    <strong>Huom:</strong> jäsenlista on julkinen ja näkyvissä GitHubissa sekä automaattisesti kaikkien ringin jäsenten sivuilla. Liittymällä hyväksyt, että nimesi ja verkkosivusi näkyvät julkisesti.
+  </div>
+
+  <h2>Upotuskoodi sivullesi</h2>
+  <p>Liitä seuraava koodi sivullesi, jotta rinkilista näkyy siellä:</p>
+
+  <pre><code>&lt;div id="members-list"&gt;Loading members...&lt;/div&gt;
+&lt;script src="https://vuorita.github.io/ring-script/ring.js"&gt;&lt;/script&gt;</code></pre>
+
+  <h2>Rinkilista esimerkki</h2>
+  <div id="members-list">Loading members...</div>
+  <script src="https://vuorita.github.io/ring-script/ring.js"></script>
+
 </body>
 </html>
+
