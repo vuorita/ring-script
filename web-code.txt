@@ -1,6 +1,6 @@
 <div id="ring-header" style="margin-bottom: 10px;">
   <a href="https://taidetta.net">Taidetta.net – taiteilijaverkosto</a> |
-  <a href="https://vuorita.github.io/ring-script/">Liity</a>
+  <a href="https://www.taidetta.net/p/verkostoon-liittyminen.html">Liity</a>
 </div>
 
 <div id="members-list">Loading members...</div>
