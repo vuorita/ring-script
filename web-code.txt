@@ -1,0 +1,7 @@
+<div id="ring-header" style="margin-bottom: 10px;">
+  <a href="https://taidetta.net">Taidetta.net – taiteilijaverkosto</a> |
+  <a href="https://vuorita.github.io/ring-script/">Liity</a>
+</div>
+
+<div id="members-list">Loading members...</div>
+<script src="https://vuorita.github.io/ring-script/ring.js"></script>
