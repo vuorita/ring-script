@@ -1,6 +1,7 @@
 async function fetchMembers() {
   try {
-    const response = await fetch('members.json');
+    const response = await fetch('test-members.json');
+    
     const members = await response.json();
 
     const container = document.getElementById('members-list');
