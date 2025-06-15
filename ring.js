@@ -1,25 +1,49 @@
-async function fetchMembers() {
-  try {
-    //const response = await fetch('members.json');
-    const response = await fetch('https://vuorita.github.io/ring-script/members.json');
+(async function () {
+  const MEMBERS_JSON_URL = "https://vuorita.github.io/ring-script/members.json";
+  const EXCEPTION_HOSTS = ["taidetta.net"]; // Näitä ei tarkisteta
 
+  // Poista protokolla ja www., normalisoi URL
+  function normalizeHost(url) {
+    try {
+      const u = new URL(url);
+      let host = u.hostname.toLowerCase();
+      if (host.startsWith("www.")) host = host.slice(4);
+      return host;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  const currentHost = normalizeHost(window.location.href);
+  try {
+    const response = await fetch(MEMBERS_JSON_URL);
     const members = await response.json();
 
-    const container = document.getElementById('members-list');
-    container.innerHTML = '';
+    const allowedHosts = members.map(m => normalizeHost(m.url)).filter(Boolean);
+    const isAllowed =
+      EXCEPTION_HOSTS.includes(currentHost) || allowedHosts.includes(currentHost);
 
-    members.forEach(member => {
-      const a = document.createElement('a');
-      a.href = member.url;
-      a.target = '_blank';
-      a.textContent = member.name;
-      a.style.display = 'block';
-      container.appendChild(a);
-    });
+    const listContainer = document.getElementById("members-list");
 
-  } catch (error) {
-    console.error('Error fetching members list:', error);
+    if (!listContainer) return;
+
+    if (isAllowed) {
+      let listHtml = "<ul>";
+      members.forEach(member => {
+        listHtml += `<li><a href="${member.url}" target="_blank" rel="noopener">${member.name}</a></li>`;
+      });
+      listHtml += "</ul>";
+      listContainer.innerHTML = listHtml;
+    } else {
+      listContainer.innerHTML =
+        "<p style='color:red;'>Tämä sivu ei kuulu hyväksyttyihin Taidetta.net-verkoston sivuihin.</p>";
+    }
+  } catch (e) {
+    console.error("Verkkoringin lataus epäonnistui:", e);
+    const listContainer = document.getElementById("members-list");
+    if (listContainer) {
+      listContainer.innerHTML =
+        "<p style='color:red;'>Verkkoringin lataus epäonnistui.</p>";
+    }
   }
-}
-
-document.addEventListener('DOMContentLoaded', fetchMembers);
+})();
