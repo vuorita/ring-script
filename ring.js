@@ -14,10 +14,29 @@
     }
   }
 
+  // Base64-dekoodaus ja UTF-8 muunnos
+  function b64DecodeUnicode(str) {
+    // atob palauttaa latin1, joten täytyy muuttaa UTF-8 muotoon
+    return decodeURIComponent(
+      Array.prototype.map
+        .call(atob(str), c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+        .join('')
+    );
+  }
+
   const currentHost = normalizeHost(window.location.href);
+
   try {
     const response = await fetch(MEMBERS_JSON_URL);
-    const members = await response.json();
+    const membersEncoded = await response.json();
+
+    // Puretaan nimet ja urlit base64:sta
+    const members = membersEncoded.map(m => {
+      return {
+        name: b64DecodeUnicode(m.name),
+        url: b64DecodeUnicode(m.url),
+      };
+    });
 
     const allowedHosts = members.map(m => normalizeHost(m.url)).filter(Boolean);
     const isAllowed =
@@ -47,3 +66,4 @@
     }
   }
 })();
+
