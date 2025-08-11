@@ -2,7 +2,7 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8">
-  <title>Taiteilijaverkkorinki</title>
+  <title>Taiteilijaverkkorinki / Artist's Web Ring — Embed Code</title>
   <style>
     body {
       font-family: sans-serif;
@@ -29,10 +29,16 @@
 
   <div class="en">
     <h2>🔸 English summary</h2>
-    <p>This project is a lightweight web ring for independent artists. Each member has their own website or blog, and this script shows a shared list of members on each participating site.</p>
-    <p>The member list is stored in a public JSON file on GitHub and updated manually by the maintainer. To join, artists must send their name and website URL to the maintainer and agree to having their info listed publicly.</p>
+    <p>This project is a lightweight web ring script originally developed for the Taidetta.net artist network. It allows independent artists to showcase their own websites or blogs by displaying a shared list of members on every participating site.</p>
+    <p>The member list is stored in a public JSON file on GitHub and is manually updated by the maintainer. Although the code was created for Taidetta.net, it is freely available for anyone to use.</p>
+    <p>To join, artists send their name and website URL to the maintainer and agree to have their information listed publicly.</p>
     <p>Embed code:</p>
-    <pre><code>&lt;div id="members-list"&gt;Loading members...&lt;/div&gt;
+    <pre><code>&lt;div id="ring-header" style="margin-bottom: 10px;"&gt;
+  &lt;a href="https://taidetta.net"&gt;Taidetta.net – Artist's Web Ring&lt;/a&gt; |
+  &lt;a href="https://vuorita.github.io/ring-script/"&gt;Join&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div id="members-list"&gt;Loading members...&lt;/div&gt;
 &lt;script src="https://vuorita.github.io/ring-script/ring.js"&gt;&lt;/script&gt;</code></pre>
     <hr>
   </div>
