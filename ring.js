@@ -55,7 +55,7 @@
       listContainer.innerHTML = listHtml;
     } else {
       listContainer.innerHTML =
-        "<p style='color:red;'>Tämä sivu ei kuulu hyväksyttyihin Taidetta.net-verkoston sivuihin.</p>";
+        "<p style='color:red;'>Site not yet approved.</p>";
     }
   } catch (e) {
     console.error("Verkkoringin lataus epäonnistui:", e);
